@@ -28,3 +28,31 @@ go_rules_dependencies()
 go_register_toolchains(version = "1.21.1")
 
 gazelle_dependencies()
+
+http_archive(
+    name = "rules_rust",
+    sha256 = "6357de5982dd32526e02278221bb8d6aa45717ba9bbacf43686b130aa2c72e1e",
+    urls = ["https://github.com/bazelbuild/rules_rust/releases/download/0.30.0/rules_rust-v0.30.0.tar.gz"],
+)
+
+load("@rules_rust//rust:repositories.bzl", "rules_rust_dependencies", "rust_register_toolchains")
+
+rules_rust_dependencies()
+
+rust_register_toolchains()
+
+GAZELLE_RUST_COMMIT = "b764243b3f22e8ad52f79466ba77f06797d0c3d4"
+GAZELLE_RUST_SHA256 = "0586cdf986fb74301a4cde44be0280d5d7feeba40e8dd4a6eccdc8986e7cf152"
+
+http_archive(
+    name = "gazelle_rust",
+    sha256 = GAZELLE_RUST_SHA256,
+    strip_prefix = "gazelle_rust-{}".format(GAZELLE_RUST_COMMIT),
+    url = "https://github.com/Calsign/gazelle_rust/archive/{}.zip".format(GAZELLE_RUST_COMMIT),
+)
+
+load("@gazelle_rust//:deps1.bzl", "gazelle_rust_dependencies1")
+gazelle_rust_dependencies1()
+
+load("@gazelle_rust//:deps2.bzl", "gazelle_rust_dependencies2")
+gazelle_rust_dependencies2()

@@ -5,3 +5,7 @@ bazel-bin
 bazel-dffmpeg
 bazel-out
 bazel-testlogs
+
+.bazelrc.windows.local
+
+apps/worker/target/**

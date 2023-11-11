@@ -1,15 +1,15 @@
-load("@io_bazel_rules_go//go:def.bzl", "go_library", "go_binary")
+load("@io_bazel_rules_go//go:def.bzl", "go_binary", "go_library")
 
-go_library(
-    name = "controller",
-    srcs = ["main.go"],
+go_binary(
+    name = "app",
+    embed = [":cmd_lib"],
     importpath = "apps/controller/cmd",
     visibility = ["//visibility:public"],
 )
 
-go_binary(
-    name = "controller",
+go_library(
+    name = "cmd_lib",
     srcs = ["main.go"],
     importpath = "apps/controller/cmd",
-    visibility = ["//visibility:public"],
+    visibility = ["//visibility:private"],
 )
