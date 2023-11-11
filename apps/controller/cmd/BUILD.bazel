@@ -1,0 +1,15 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library", "go_binary")
+
+go_library(
+    name = "controller",
+    srcs = ["main.go"],
+    importpath = "apps/controller/cmd",
+    visibility = ["//visibility:public"],
+)
+
+go_binary(
+    name = "controller",
+    srcs = ["main.go"],
+    importpath = "apps/controller/cmd",
+    visibility = ["//visibility:public"],
+)
