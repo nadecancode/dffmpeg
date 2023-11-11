@@ -5,5 +5,5 @@ package(default_visibility = ["//visibility:public"])
 rust_binary(
     name = "app",
     srcs = ["src/main.rs"],
-    edition = "2021"
+    edition = "2021",
 )
