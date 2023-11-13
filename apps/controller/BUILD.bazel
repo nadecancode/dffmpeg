@@ -2,14 +2,14 @@ load("@io_bazel_rules_go//go:def.bzl", "go_binary", "go_library")
 
 go_binary(
     name = "app",
-    embed = [":cmd_lib"],
-    importpath = "apps/controller",
+    embed = [":controller_lib"],
     visibility = ["//visibility:public"],
 )
 
 go_library(
-    name = "cmd_lib",
-    srcs = ["src/main.go"],
-    importpath = "apps/controller",
+    name = "controller_lib",
+    srcs = ["main.go"],
+    importpath = "controller/apps/controller",
     visibility = ["//visibility:private"],
+    deps = ["//apps/controller/vendor/github.com/labstack/echo"],
 )

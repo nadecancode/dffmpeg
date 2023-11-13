@@ -1,0 +1,9 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "handler",
+    srcs = ["create.go"],
+    importpath = "controller/apps/controller/handler",
+    visibility = ["//visibility:public"],
+    deps = ["//apps/controller/vendor/github.com/labstack/echo"],
+)

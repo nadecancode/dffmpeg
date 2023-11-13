@@ -9,3 +9,4 @@ bazel-testlogs
 .bazelrc.windows.local
 
 apps/worker/target/**
+apps/controller/vendor/

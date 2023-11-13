@@ -1,14 +1,18 @@
 load("@bazel_gazelle//:def.bzl", "gazelle")
 
+# gazelle:prefix controller
 gazelle(
     name = "gazelle-controller",
+    args = [
+        "-proto=disable",
+    ],
 )
 
-# gazelle:prefix
+gazelle(name = "gazelle")
 
 alias(
     name = "controller",
-    actual = "//apps/controller:app"
+    actual = "//apps/controller:app",
 )
 
 alias(
